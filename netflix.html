@@ -11,7 +11,7 @@
     body{
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     }     
-    .ml-img{
+    .ml-img {
         height: 100vh;
         width: 100vw;
         object-fit: cover;
@@ -22,8 +22,8 @@
         z-index: -1;
     }
     .navbar {
-        margin-left: 40px;
         background: transparent;
+        padding: 0.5rem 1rem; /* Adjust padding to control navbar height */
     }
     .navbar-nav .nav-link {
         color: white; 
@@ -31,59 +31,63 @@
     }
     .navbar-nav .nav-link:hover {
         color: #c2c0c0;
-        text-decoration: wavy;
+        text-decoration: none; /* Changed from wavy to none */
     }
     .navbar-brand img {
         width: 100px;
-        height: 35px;
+        height: auto; /* Maintain aspect ratio */
     }
-    nav img {
-        width: 13%;
-    }
-    ul li {
-        align-items: center;
+    .navbar-nav {
         display: flex;
-        height: 100%;
-        position: relative;
+        align-items: center;
+    }
+    .navbar-nav .nav-item {
+        margin: 0 5; /* Space between menu items */
+    }
+    .search-form {
+        display: flex;
+        align-items: center;
+    }
+    .search-form input {
+        border-radius: 20px;
+    }
+    .search-form button {
+        border-radius: 20px;
     }
 </style>
 <body>
 
     <img class="ml-img" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">    
     
-    <nav class="navbar navbar-expand-lg navbar-dark mt-1">
-        <div class="container">
-            <div class="row w-100">
-                <div class="col-6 col-lg-3">
-                    <a href="#" class="navbar-brand">
-                        <img src="./logo.png" alt="Logo" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav d-flex flex-row justify-content-between">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">Ana Sayfa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Diziler</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Filmler</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Yeni ve Popüler</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Listem</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Dile Göre Göz At</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 d-flex align-items-center justify-content-end">
+    <nav class="navbar navbar-expand-lg navbar-dark mt-1 ms-4">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <img src="./logo.png" alt="Logo" class="img-fluid">
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active ms-3">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Diziler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Filmler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Yeni ve Popüler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Listem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Dile Göre Göz At</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center ms-auto search-form">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Ara</button>
@@ -95,5 +99,10 @@
             </div>
         </div>
     </nav>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>
