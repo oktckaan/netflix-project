@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Sayfa - Netflix</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
 </head>
 <style>
@@ -17,17 +23,21 @@
         font-family: "Poppins", sans-serif;
         font-weight: 300;
         font-style: normal;
-    }     
+        margin: 0;
+        padding: 0;
+    }
+
     .ml-img {
         height: 100vh;
         width: 100vw;
         object-fit: cover;
         filter: brightness(0.6);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         z-index: -1;
     }
+
     .navbar {
         background: transparent;
         padding: 0.5rem 1rem;
@@ -37,31 +47,38 @@
         align-items: center;
         justify-content: space-between;
     }
+
     .navbar-nav .nav-link {
-        color: white; 
+        color: white;
         transition: color 0.3s ease;
     }
+
     .navbar-nav .nav-link:hover {
         color: #c2c0c0;
         text-decoration: none;
     }
+
     .navbar-brand img {
         width: 100px;
         height: auto;
     }
+
     .navbar-nav {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
     }
+
     .navbar-nav .nav-item {
         margin: 0 10px;
     }
+
     .search-form {
         display: flex;
         align-items: center;
         gap: 10px;
     }
+
     .custom-search-form {
         display: flex;
         align-items: center;
@@ -69,6 +86,7 @@
         padding: 5px 10px;
         background-color: rgba(255, 255, 255, 0.2);
     }
+
     .custom-search-input {
         border: none;
         background: transparent;
@@ -78,28 +96,34 @@
         outline: none;
         width: 200px;
     }
+
     .custom-search-input::placeholder {
         color: white;
         opacity: 0.8;
     }
+
     .custom-search-button {
         border: none;
         background: none;
         color: white;
         cursor: pointer;
     }
+
     .user-icon img {
         width: 30px;
         height: 30px;
-        border-radius: 50%;
+        border-radius: 6px;
     }
+
     .custom-search-button:hover {
         color: #c2c0c0;
     }
+
     .notification-bell {
         color: white;
         position: relative;
     }
+
     .notification-bell .badge {
         position: absolute;
         top: -5px;
@@ -109,19 +133,202 @@
         padding: 2px 5px;
         font-size: 10px;
     }
+
+    .netflix-select {
+        background: transparent;
+        color: white;
+        border: none;
+
+    }
+
+    select:focus-visible {
+        outline: none;
+    }
+
+    .custom-select-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 200px;
+    }
+
+    #original-select {
+        display: none;
+    }
+
+    .custom-select {
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .custom-select-trigger {
+        background: transparent;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .custom-options {
+        display: flex;
+        background: black;
+        opacity: 0.7;
+        border: none;
+        color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border-top: none;
+        display: none;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .custom-option {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .custom-option:hover {
+        background: #f0f0f0;
+        color: black;
+    }
+
+    .custom-select.open .custom-options {
+        display: flex;
+    }
+
+    .custom-select.open .custom-select-trigger {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .kaan-button {
+        transition: all 0.5s ease-in-out;
+    }
+
+    .go-to-down {
+        transition: all 0.5s ease-in-out;
+
+        transform: translateY(200px);
+    }
+
+    .carousel-container {
+        min-width: 1281px;
+        max-width: 1900px;
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background-color: #222;
+        padding: 15px;
+        border-radius: 5px;
+        padding-right: 2rem;
+        margin-bottom: 50px;
+    }
+
+    .carousel , .carousel1 , .carousel2 , .carousel3 {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 20%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        border-radius: 5px;
+        padding-left: 3px;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .carousel-button.left {
+        left: 10px;
+    }
+
+    .carousel-button.right {
+        right: 10px;
+    }
+    .header-section {
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-left: 10px;
+    }
+    .header-section h2 {
+        margin: 0;
+        font-size: 1.5em;
+        color: white;
+    }
+
+    .browse-all {
+        padding: 5px 10px;
+        font-size: 0.9em;
+        color: #fff;
+        background-color: transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+    }
+
+    .browse-all::after {
+        content: '\003e';
+        font-size: 1.2em;
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .browse-all:hover::after {
+        transform: translateX(3px);
+    }    
 </style>
+
 <body>
 
-    <img class="ml-img" src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">    
-    
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <img class="ml-img"
+        src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="">
+
+    <nav class="navbar navbar-expand navbar-dark">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand">
-                <img src="./logo.png" alt="Logo" class="img-fluid">
-            </a>
+            <div id="kaan-button">
+                <svg viewBox="0 0 111 30" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                    class="default-ltr-cache-1d568uk ev1dnif2" width="150" height="50" fill="#e50914">
+                    <g>
+                        <path
+                            d="M105.06233,14.2806261 L110.999156,30 C109.249227,29.7497422 107.500234,29.4366857 105.718437,29.1554972 L102.374168,20.4686475 L98.9371075,28.4375293 C97.2499766,28.1563408 95.5928391,28.061674 93.9057081,27.8432843 L99.9372012,14.0931671 L94.4680851,-5.68434189e-14 L99.5313525,-5.68434189e-14 L102.593495,7.87421502 L105.874965,-5.68434189e-14 L110.999156,-5.68434189e-14 L105.06233,14.2806261 Z M90.4686475,-5.68434189e-14 L85.8749649,-5.68434189e-14 L85.8749649,27.2499766 C87.3746368,27.3437061 88.9371075,27.4055675 90.4686475,27.5930265 L90.4686475,-5.68434189e-14 Z M81.9055207,26.93692 C77.7186241,26.6557316 73.5307901,26.4064111 69.250164,26.3117443 L69.250164,-5.68434189e-14 L73.9366389,-5.68434189e-14 L73.9366389,21.8745899 C76.6248008,21.9373887 79.3120255,22.1557784 81.9055207,22.2804387 L81.9055207,26.93692 Z M64.2496954,10.6561065 L64.2496954,15.3435186 L57.8442216,15.3435186 L57.8442216,25.9996251 L53.2186709,25.9996251 L53.2186709,-5.68434189e-14 L66.3436123,-5.68434189e-14 L66.3436123,4.68741213 L57.8442216,4.68741213 L57.8442216,10.6561065 L64.2496954,10.6561065 Z M45.3435186,4.68741213 L45.3435186,26.2498828 C43.7810479,26.2498828 42.1876465,26.2498828 40.6561065,26.3117443 L40.6561065,4.68741213 L35.8121661,4.68741213 L35.8121661,-5.68434189e-14 L50.2183897,-5.68434189e-14 L50.2183897,4.68741213 L45.3435186,4.68741213 Z M30.749836,15.5928391 C28.687787,15.5928391 26.2498828,15.5928391 24.4999531,15.6875059 L24.4999531,22.6562939 C27.2499766,22.4678976 30,22.2495079 32.7809542,22.1557784 L32.7809542,26.6557316 L19.812541,27.6876933 L19.812541,-5.68434189e-14 L32.7809542,-5.68434189e-14 L32.7809542,4.68741213 L24.4999531,4.68741213 L24.4999531,10.9991564 C26.3126816,10.9991564 29.0936358,10.9054269 30.749836,10.9054269 L30.749836,15.5928391 Z M4.78114163,12.9684132 L4.78114163,29.3429562 C3.09401069,29.5313525 1.59340144,29.7497422 0,30 L0,-5.68434189e-14 L4.4690224,-5.68434189e-14 L10.562377,17.0315868 L10.562377,-5.68434189e-14 L15.2497891,-5.68434189e-14 L15.2497891,28.061674 C13.5935889,28.3437998 11.906458,28.4375293 10.1246602,28.6868498 L4.78114163,12.9684132 Z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
 
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav d-none d-lg-flex">
                     <li class="nav-item">
                         <a href="#" class="nav-link active">Ana Sayfa</a>
                     </li>
@@ -142,30 +349,379 @@
                     </li>
                 </ul>
 
-                <div class="d-flex align-items-center ms-auto search-form">
-                    <form class="custom-search-form">
-                        <input class="form-control custom-search-input" type="search" placeholder="Ara" aria-label="Search">
+                <div class="d-flex d-lg-none ps-4">
+                    <div class="custom-select-wrapper">
+                        <div class="custom-select">
+                            <div class="custom-select-trigger">Ana Sayfa</div>
+                            <div class="custom-options">
+                                <span class="custom-option" data-value="ana-sayfa">Ana Sayfa</span>
+                                <span class="custom-option" data-value="diziler">Diziler</span>
+                                <span class="custom-option" data-value="filmler">Filmler</span>
+                                <span class="custom-option" data-value="yeni-ve-populer">Yeni ve Popüler</span>
+                                <span class="custom-option" data-value="listem">Listem</span>
+                                <span class="custom-option" data-value="dile-gore-goz-at">Dile Göre Göz At</span>
+                            </div>
+                        </div>
+                        <select id="original-select" class="netflix-select">
+                            <option value="ana-sayfa">Ana Sayfa</option>
+                            <option value="diziler">Diziler</option>
+                            <option value="filmler">Filmler</option>
+                            <option value="yeni-ve-populer">Yeni ve Popüler</option>
+                            <option value="listem">Listem</option>
+                            <option value="dile-gore-goz-at">Dile Göre Göz At</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center ms-auto search-form ">
+                    <form class="custom-search-form d-none d-lg-flex">
+                        <input class="form-control custom-search-input" type="search" placeholder="Ara"
+                            aria-label="Search">
                         <button class="btn custom-search-button" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </form>
                     <span style="color: white; margin-left: 15px;">Çocuk</span>
                     <div class="notification-bell ms-3">
-                        <i class="fa fa-bell"></i>
-                        <span class="badge">3</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="24" viewBox="0 0 24 24"
+                            role="img" data-icon="BellStandard" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.0002 4.07092C16.3924 4.55624 19 7.4736 19 11V15.2538C20.0489 15.3307 21.0851 15.4245 22.1072 15.5347L21.8928 17.5232C18.7222 17.1813 15.4092 17 12 17C8.59081 17 5.27788 17.1813 2.10723 17.5232L1.89282 15.5347C2.91498 15.4245 3.95119 15.3307 5.00003 15.2538V11C5.00003 7.47345 7.60784 4.55599 11.0002 4.07086V2H13.0002V4.07092ZM17 15.1287V11C17 8.23858 14.7614 6 12 6C9.2386 6 7.00003 8.23858 7.00003 11V15.1287C8.64066 15.0437 10.3091 15 12 15C13.691 15 15.3594 15.0437 17 15.1287ZM8.62593 19.3712C8.66235 20.5173 10.1512 22 11.9996 22C13.848 22 15.3368 20.5173 15.3732 19.3712C15.3803 19.1489 15.1758 19 14.9533 19H9.0458C8.82333 19 8.61886 19.1489 8.62593 19.3712Z"
+                                fill="currentColor"></path>
+                        </svg> <span class="badge">3</span>
                     </div>
                     <a href="#" class="user-icon ms-3">
-                        <img src="panda.png" alt="User">
+                        <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABYlCQUJop12EwNzPyzZEMz9iHu7_KrRv-TRwKI_wSP9sikQYwDtxP_7HXiOrnGPAXScYx3PxRic7l-IPcvAsGIqUXUExW8g.png?r=5fd"
+                            alt="User">
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
+    <div class="header-section">
+        <h2>Ödüllü Amerikan Dizileri</h2>
+        <div class="browse-all">Tümüne Göz At</div>
+    </div>
+
+    <div class="carousel-container">
+        <button class="carousel-button left" id="prevBtn">&#10094;</button>
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            
+        </div>
+        <button class="carousel-button right" id="nextBtn">&#10095;</button>
+    </div>
+
+    <div class="header-section">
+        <h2>Kaan, İzlemeye Devam Et</h2>
+        <div class="browse-all">Tümüne Göz At</div>
+    </div>
+
+    <div class="carousel-container">
+        <button class="carousel-button left" id="prevBtn1">&#10094;</button>
+        <div class="carousel1">
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+        </div>
+        <button class="carousel-button right" id="nextBtn1">&#10095;</button>
+    </div>
+
+    <div class="header-section">
+        <h2>Listem</h2>
+        <div class="browse-all">Tümüne Göz At</div>
+    </div>
+
+    <div class="carousel-container">
+        <button class="carousel-button left" id="prevBtn2">&#10094;</button>
+        <div class="carousel2">
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            
+        </div>
+        <button class="carousel-button right" id="nextBtn2">&#10095;</button>
+    </div>
+
+    <div class="carousel-container">
+        <button class="carousel-button left" id="prevBtn3">&#10094;</button>
+        <div class="carousel3">
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://occ-0-3175-1432.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU4WauJmOo1TCKxanUs2voQmgd_CX09pwllOARar1tl_F_DQTa_6OIJ5tBSoEWB5fhgXJ2WbL_v0gCP7zW2YOrAkZjt7c4_seYI.webp?r=a65" alt="Movie 1">
+            </div>
+            
+        </div>
+        <button class="carousel-button right" id="nextBtn3">&#10095;</button>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
 
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerSections = document.querySelectorAll('.header-section');
+    
+        headerSections.forEach(headerSection => {
+            const h2 = headerSection.querySelector('h2');
+            const browseAll = headerSection.querySelector('.browse-all');
+    
+    
+            h2.addEventListener('mouseover', function () {
+                browseAll.style.opacity = '1';
+                browseAll.style.visibility = 'visible';
+            });
+    
+            
+            headerSection.addEventListener('mouseleave', function () {
+                setTimeout(function () {
+                    if (!browseAll.matches(':hover')) {
+                        browseAll.style.opacity = '0';
+                        browseAll.style.visibility = 'hidden';
+                    }
+                }, 100); 
+            });
+    
+            
+            browseAll.addEventListener('mouseover', function () {
+                browseAll.style.opacity = '1';
+                browseAll.style.visibility = 'visible';
+            });
+    
+            
+            browseAll.addEventListener('mouseleave', function () {
+                browseAll.style.opacity = '0';
+                browseAll.style.visibility = 'hidden';
+            });
+        });
+    });
+    
+    
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const carousel = document.querySelector('.carousel');
+    let currentIndex = 0;
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < carousel.children.length - 1) {
+            currentIndex++;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+        currentIndex--;
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    });
+
+    const prevBtn1 = document.getElementById('prevBtn1');
+    const nextBtn1 = document.getElementById('nextBtn1');
+    const carousel1 = document.querySelector('.carousel1');
+    let currentIndex1 = 0;
+
+    nextBtn1.addEventListener('click', () => {
+        if (currentIndex1 < carousel1.children.length - 1) {
+            currentIndex1++;
+            carousel1.style.transform = `translateX(-${currentIndex1 * 100}%)`;
+        }
+    });
+
+    prevBtn1.addEventListener('click', () => {
+        if (currentIndex1 > 0) {
+            currentIndex1--;
+            carousel1.style.transform = `translateX(-${currentIndex1 * 100}%)`;
+        }
+});
+
+    const prevBtn2 = document.getElementById('prevBtn2');
+    const nextBtn2 = document.getElementById('nextBtn2');
+    const carousel2 = document.querySelector('.carousel2');
+    let currentIndex2 = 0;
+
+    nextBtn2.addEventListener('click', () => {
+        if (currentIndex2 < carousel2.children.length - 1) {
+            currentIndex2++;
+            carousel2.style.transform = `translateX(-${currentIndex2 * 100}%)`;
+        }
+    });
+
+    prevBtn2.addEventListener('click', () => {
+        if (currentIndex2 > 0) {
+            currentIndex2--;
+            carousel2.style.transform = `translateX(-${currentIndex2 * 100}%)`;
+        }
+});
+
+    const prevBtn3 = document.getElementById('prevBtn3');
+    const nextBtn3 = document.getElementById('nextBtn3');
+    const carousel3 = document.querySelector('.carousel3');
+    let currentIndex3 = 0;
+
+    nextBtn3.addEventListener('click', () => {
+        if (currentIndex3 < carousel3.children.length - 1) {
+            currentIndex3++;
+            carousel3.style.transform = `translateX(-${currentIndex3 * 100}%)`;
+        }
+    });
+
+    prevBtn3.addEventListener('click', () => {
+        if (currentIndex3 > 0) {
+            currentIndex3--;
+            carousel3.style.transform = `translateX(-${currentIndex3 * 100}%)`;
+        }
+});
+</script>
 </body>
+
 </html>
